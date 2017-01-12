@@ -33,16 +33,16 @@ module.exports = {
   },
   'SASS_MODULES': {
     toArray: 'loaders',
-    fileRegex: /\.(scss|sass)/,
+    fileRegex: /\.(mscss|msass)/,
     getDev: function () {
       return {
-        test: /(\.scss|\.sass)$/,
+        test: /(\.mscss|\.msass)$/,
         loader: `style!css${cssModulesDev}!postcss!sass`
       }
     },
     getProd: function () {
       return {
-        test: /(\.scss|\.sass)$/,
+        test: /(\.mscss|\.msass)$/,
         loader: ExtractTextPlugin.extract('style', `css${cssModulesProd}!postcss!sass`)
       }
     }
@@ -65,16 +65,16 @@ module.exports = {
   },
   'LESS_MODULES': {
     toArray: 'loaders',
-    fileRegex: /\.less$/,
+    fileRegex: /\.mless$/,
     getDev: function () {
       return {
-        test: /\.less$/,
+        test: /\.mless$/,
         loader: `style!css${cssModulesDev}!postcss!less`
       }
     },
     getProd: function () {
       return {
-        test: /\.less/,
+        test: /\.mless/,
         loader: ExtractTextPlugin.extract('style', `css${cssModulesProd}!postcss!less`)
       }
     }
@@ -100,14 +100,30 @@ module.exports = {
     fileRegex: /\.styl$/,
     getDev: function () {
       return {
-        test: /\.styl/,
+        test: /\.mstyl/,
         loader: `style!css${cssModulesDev}!postcss!stylus`
       }
     },
     getProd: function () {
       return {
-        test: /\.styl/,
+        test: /\.mstyl/,
         loader: ExtractTextPlugin.extract('style', `css${cssModulesProd}!postcss!stylus`)
+      }
+    }
+  },
+  'EXTENSION_CSS_MODULES': {
+    toArray: 'loaders',
+    fileRegex: /\.mcss/,
+    getDev: function () {
+      return {
+        test: /\.mcss$/,
+        loader: `style!css${cssModulesDev}!postcss`
+      }
+    },
+    getProd: function () {
+      return {
+        test: /\.mcss$/,
+        loader: `style!css${cssModulesProd}!postcss`
       }
     }
   },
